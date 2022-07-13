@@ -7,6 +7,10 @@ name: Continuous Deployment
 on:
   push:
     branches:
+<<<<<<< HEAD
+=======
+      - main
+>>>>>>> master
       - master
       - develop
 
@@ -37,6 +41,7 @@ jobs:
             ${{ github.workspace }}/go.mod
             ${{ github.workspace }}/go.sum
 
+<<<<<<< HEAD
   test:
     needs: setup
     runs-on: ubuntu-latest
@@ -52,6 +57,8 @@ jobs:
       - name: Run tests
         run: go test -v -race -timeout=180s -count=1 -cover ./...
 
+=======
+>>>>>>> master
   docker:
     needs: [setup, test]
     runs-on: ubuntu-latest
