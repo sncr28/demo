@@ -26,4 +26,3 @@ func (h home) handle(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%s: info: X-Request-ID: %s\n", ver, r.Header.Get("X-Request-ID"))
 	_, _ = w.Write([]byte(ver))
 }
-
