@@ -7,7 +7,6 @@ name: Continuous Deployment
 on:
   push:
     branches:
-      - main
       - master
       - develop
 
@@ -37,6 +36,21 @@ jobs:
             ${{ github.workspace }}/main_test.go
             ${{ github.workspace }}/go.mod
             ${{ github.workspace }}/go.sum
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Golang 1.17
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Download repository
+        uses: actions/download-artifact@v2
+        with:
+          name: repository
+      - name: Run tests
+        run: go test -v -race -timeout=180s -count=1 -cover ./...
 
   docker:
     needs: [setup, test]
