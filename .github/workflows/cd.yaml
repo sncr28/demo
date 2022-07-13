@@ -7,6 +7,7 @@ name: Continuous Deployment
 on:
   push:
     branches:
+      - main
       - master
       - develop
 
