@@ -37,7 +37,7 @@ jobs:
             ${{ github.workspace }}/go.mod
             ${{ github.workspace }}/go.sum
   docker:
-    needs: [setup, test]
+    needs: [setup]
     runs-on: ubuntu-latest
     steps:
       - name: Download repository
