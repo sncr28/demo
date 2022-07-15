@@ -82,5 +82,5 @@ jobs:
       - name: Deploy
         run: |
           helm upgrade --install --atomic --timeout 1m rest ./infra/helm/ -f ./infra/helm/values.yaml \
-            --kube-context minikube --namespace develop --create-namespace \
+            --kube-context nonprod --namespace develop --create-namespace \
             --set image.tag=${{ needs.setup.outputs.tag }}
