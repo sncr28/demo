@@ -4,7 +4,7 @@ env:
   HTTP_ADDR: :8080
 
 image:
-  name: you/rest
+  name: ealen/echo-server
   tag: latest
   pull: IfNotPresent
 
