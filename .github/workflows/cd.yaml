@@ -85,4 +85,3 @@ jobs:
             --kube-context minikube --namespace develop --create-namespace \
             --set image.tag=${{ needs.setup.outputs.tag }}
           
-          
